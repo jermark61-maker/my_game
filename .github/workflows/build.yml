@@ -44,13 +44,16 @@ jobs:
         pip install --upgrade buildozer
         pip install cython==0.29.36
 
-    - name: Accept Licenses and Install Required Build Tools
+    - name: Accept All Android SDK Licenses Forcefully
       run: |
         mkdir -p ~/.android
         echo "### License accepted by GitHub Actions" > ~/.android/repositories.cfg
-        # Tanggapin ang lahat ng lisensya at i-install nang patiuna ang build-tools 33.0.2 at platform-tools para hindi na mag-prompt
-        echo "y" | sdkmanager "platforms;android-33" "build-tools;33.0.2" "platforms;android-31" "build-tools;31.0.0" || true
+        # Dito natin pilit na sasagutin ng 'y' ang lahat ng lisensya na maaaring hanapin ng sdkmanager
+        export ANDROID_HOME=$HOME/.android/sdk
+        mkdir -p $ANDROID_HOME
         yes | sdkmanager --licenses || true
+        # I-install nang patiuna ang build-tools 37 para hindi na mag-prompt sa gitna ng build
+        yes | sdkmanager "build-tools;37.0.0" "platforms;android-33" || true
 
     - name: Run Buildozer Build
       run: |
