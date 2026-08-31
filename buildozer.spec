@@ -26,13 +26,13 @@ requirements = python3,kivy
 orientation = portrait
 
 # (int) Android API to use
-android.api = 33
+android.api = 31
 
 # (int) Min API your APK will support
 android.minapi = 21
 
 # Android SDK version
-android.sdk = 33
+android.sdk = 31
 
 # Android NDK version
 android.ndk = 25b
