@@ -43,10 +43,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install --upgrade buildozer cython==0.29.36
 
-    - name: Accept Android SDK Licenses
-      run: |
-        mkdir -p ~/.android
-        echo "### License accepted by GitHub Actions" > ~/.android/repositories.cfg
+ - name: Accept Android SDK Licenses
+   run: |
+     mkdir -p ~/.android
+     echo "### License accepted by GitHub Actions" > ~/.android/repositories.cfg
+     yes | sdkmanager --licenses || true
 
     - name: Run Buildozer Build
       run: |
