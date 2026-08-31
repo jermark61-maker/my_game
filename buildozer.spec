@@ -26,16 +26,19 @@ requirements = python3,kivy
 orientation = portrait
 
 # (int) Android API to use
-android.api = 31
+android.api = 33
 
 # (int) Min API your APK will support
 android.minapi = 21
 
 # Android SDK version
-android.sdk = 31
+android.sdk = 33
 
 # Android NDK version
 android.ndk = 25b
 
 # (int) Fullscreen mode
 fullscreen = 0
+
+# (str) Android build tools version to use
+android.build_tools_version = 33.0.2
